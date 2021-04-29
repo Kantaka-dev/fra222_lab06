@@ -50,7 +50,8 @@ UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
 
-uint8_t ADCUpdateFlag = 0;
+//uint8_t ADCUpdateFlag = 0;
+
 //Store ADC Value
 uint16_t ADCFeedBack = 0;
 
@@ -145,11 +146,11 @@ int main(void)
 			//using compare to set PWM duty cycle = PWMOut / timer_period(which is 10000)
 		}
 
-		if (ADCUpdateFlag)
-		{
-			ADCUpdateFlag = 0;
-			//#002
-		}
+//		if (ADCUpdateFlag)
+//		{
+//			ADCUpdateFlag = 0;
+//			//#002
+//		}
 
 	}
   /* USER CODE END 3 */
@@ -473,7 +474,7 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
 	ADCFeedBack = 3300 / 4096.0 * HAL_ADC_GetValue(&hadc1);
 	//read ADC and turn from Bits to mV
 
-	ADCUpdateFlag = 1;
+//	ADCUpdateFlag = 1;
 }
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
